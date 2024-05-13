@@ -1,12 +1,19 @@
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Form from "react-bootstrap/Form";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { useState } from "react";
 
 function App() {
+  const [date, setDate] = useState(new Date());
+
   return (
     <div>
       <Welcome></Welcome>
-      <Form.Control className="row-md-12" type="date" />
+      <DatePicker
+        selected={date}
+        onChange={(date) => setDate(date)}
+      ></DatePicker>
     </div>
   );
 }
