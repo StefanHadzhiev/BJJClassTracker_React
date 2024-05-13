@@ -4,6 +4,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 
+// https://refine.dev/blog/react-date-picker/#select-range-within-one-component
+
 function App() {
   const [date, setDate] = useState(new Date());
 
