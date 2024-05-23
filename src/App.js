@@ -4,7 +4,6 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 import Accordion from "react-bootstrap/Accordion";
-import moment from "moment";
 
 // TO DO: FIX ADD CLASS AS IT FILLS THE ARRAY IN AN INCORRECT WAY
 // TO DO : FIX DATE FORMATTING ON ADD NEW CLASS
@@ -46,6 +45,7 @@ function App() {
   const [bjjClasses, setbjjClasses] = useState(initialClasses);
   const [selctedBjjClass, setselctedBjjClass] = useState(null);
   const [showAddClass, setShowAddClass] = useState(false);
+  const [showAddPerson, setShowAddPerson] = useState(false);
 
   function handleSetDate(date) {
     setDate(date.toLocaleDateString());
@@ -63,8 +63,12 @@ function App() {
     });
   }
 
-  function handleOnButtonClick() {
+  function handleAddClassOnButtonClick() {
     setShowAddClass(!showAddClass);
+  }
+
+  function handleAddPersonButtonClick() {
+    setShowAddPerson(!showAddPerson);
   }
 
   function handleAddClass(newClass) {
@@ -91,15 +95,18 @@ function App() {
         <p>No BJJ Class available for this date.</p>
       )}
 
-      <AddPerson></AddPerson>
+      <Button onClick={handleAddPersonButtonClick} className="button">
+        {showAddPerson ? "Close" : "Add Person"}
+      </Button>
+      {showAddPerson && <AddPerson></AddPerson>}
 
-      <Button onClick={handleOnButtonClick} className="button">
+      <Button onClick={handleAddClassOnButtonClick} className="button">
         {showAddClass ? "Close" : "Add Class"}
       </Button>
       {showAddClass && (
         <AddClass
           onAddClass={handleAddClass}
-          onButtonClick={handleOnButtonClick}
+          onButtonClick={handleAddClassOnButtonClick}
         >
           {showAddClass}
         </AddClass>
@@ -182,11 +189,7 @@ function AddClass({ onAddClass }) {
 }
 
 function AddPerson() {
-  return (
-    <div>
-      <Button className="button">Add Person</Button>
-    </div>
-  );
+  return <div></div>;
 }
 
 export default App;
