@@ -21,3 +21,20 @@ form {
   background-color: var(--color-lightest);
   border-radius: 7px;
 }
+
+.app {
+  border: 5px;
+  text-align: center;
+}
+
+.btn {
+  justify-content: center;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.datepicker {
+  margin-bottom: 15px;
+}

@@ -14,14 +14,14 @@ const initialClasses = [
     name: "De-La Riva, Spider Guard Pass",
     description:
       "In todays workout we trained a delariva spider guard pass, where the person trying to pass the guard catches the spider guard leg and moves in its direction. He cleans the leg with his adjacent leg and proceeds to put the opponent's leg between his two legs, squeezing. Grips are changed to hip and collar grip. Then a backstep is performed, where the head of the attacker is placed on the belly of the opponent and the attacker's outer knee touches the ground. Then the hip touches the ground as well, while pulling with both hands. A hip escape is performed to get the legs out. Then the attacker advances to side control.",
-    date: new Date(2024, 4, 13),
+    date: new Date(2024, 3, 13),
   },
   {
     id: crypto.randomUUID(),
     name: "Some other workout",
     description:
       "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.",
-    date: new Date(2024, 4, 13),
+    date: new Date(2024, 3, 13),
   },
   {
     id: crypto.randomUUID(),
@@ -34,14 +34,14 @@ const initialClasses = [
     id: crypto.randomUUID(),
     name: "Gi workout",
     description:
-      "BJJ has traditionally been performed and practiced in the gi the heavy martial arts uniform also known as a kimono",
+      'BJJ has traditionally been performed and practiced in the "GI", the heavy martial arts uniform also known as a kimono',
     date: new Date(2024, 4, 12),
   },
 ];
 
 function App() {
   const [date, setDate] = useState(new Date());
-  const [showWorkout, setShowWorkout] = useState(false);
+  const [showClass, setShowClass] = useState(false);
   const [bjjClasses, setbjjClasses] = useState(initialClasses);
   const [selctedBjjClass, setselctedBjjClass] = useState(null);
   const [showAddClass, setShowAddClass] = useState(false);
@@ -49,7 +49,7 @@ function App() {
 
   function handleSetDate(date) {
     setDate(date.toLocaleDateString());
-    setShowWorkout(true);
+    setShowClass(true);
     setselctedBjjClass(null);
 
     bjjClasses.map((bjjClass) => {
@@ -79,28 +79,29 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="app">
       <Welcome></Welcome>
       <DatePicker
+        className="datepicker"
         selected={date}
         onChange={(date) => handleSetDate(date)}
       ></DatePicker>
 
       {selctedBjjClass ? (
         <BjjClass
-          showWorkout={showWorkout}
+          showClass={showClass}
           selctedBjjClass={selctedBjjClass}
         ></BjjClass>
       ) : (
         <p>No BJJ Class available for this date.</p>
       )}
 
-      <Button onClick={handleAddPersonButtonClick} className="button">
+      <Button onClick={handleAddPersonButtonClick} className="button btn">
         {showAddPerson ? "Close" : "Add Person"}
       </Button>
       {showAddPerson && <AddPerson></AddPerson>}
 
-      <Button onClick={handleAddClassOnButtonClick} className="button">
+      <Button onClick={handleAddClassOnButtonClick} className="button btn">
         {showAddClass ? "Close" : "Add Class"}
       </Button>
       {showAddClass && (
@@ -119,9 +120,9 @@ function Welcome() {
   return <h3>Welcome to the BJJ Class Tracker!</h3>;
 }
 
-function BjjClass({ showWorkout, selctedBjjClass }) {
+function BjjClass({ showClass, selctedBjjClass }) {
   return (
-    <Accordion disabled={showWorkout} defaultActiveKey="0">
+    <Accordion disabled={showClass} defaultActiveKey="0">
       {
         <Accordion.Item eventKey={selctedBjjClass.id}>
           <Accordion.Header>
