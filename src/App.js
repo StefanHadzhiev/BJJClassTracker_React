@@ -4,6 +4,12 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 import Accordion from "react-bootstrap/Accordion";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
+import NotFound from "./Pages/NotFound";
 
 // TO DO: FIX ADD CLASS AS IT FILLS THE ARRAY IN AN INCORRECT WAY
 // TO DO : FIX DATE FORMATTING ON ADD NEW CLASS
@@ -40,6 +46,22 @@ const initialClasses = [
 ];
 
 function App() {
+  return (
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<Home />}></Route>
+          <Route path="/home" element={<Home />}></Route>
+          <Route path="/about" element={<About />}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
+          <Route path="*" element={<NotFound />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
+}
+
+function App2() {
   const [date, setDate] = useState(new Date());
   const [showClass, setShowClass] = useState(false);
   const [bjjClasses, setbjjClasses] = useState(initialClasses);
