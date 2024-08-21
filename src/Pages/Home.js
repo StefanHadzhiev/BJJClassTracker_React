@@ -7,6 +7,7 @@ import { useState } from "react";
 import Welcome from "../Components/Welcome";
 import AddPerson from "../Components/AddPerson";
 import BjjClass from "../Components/BjjClass";
+import Navbar from "../Components/Navbar";
 
 const initialClasses = [
   {
@@ -80,6 +81,7 @@ export default function Home() {
 
   return (
     <div className="app">
+      <Navbar></Navbar>
       <Welcome></Welcome>
       <DatePicker
         className="datepicker"
