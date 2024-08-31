@@ -81,7 +81,6 @@ export default function Home() {
 
   return (
     <div className="app">
-      <Navbar></Navbar>
       <Welcome></Welcome>
       <DatePicker
         className="datepicker"
@@ -98,12 +97,12 @@ export default function Home() {
         <p>No BJJ Class available for this date.</p>
       )}
 
-      <Button onClick={handleAddPersonButtonClick} className="button btn">
+      <Button onClick={handleAddPersonButtonClick} variant="outline-success">
         {showAddPerson ? "Close" : "Add Person"}
       </Button>
       {showAddPerson && <AddPerson></AddPerson>}
 
-      <Button onClick={handleAddClassOnButtonClick} className="button btn">
+      <Button onClick={handleAddClassOnButtonClick} variant="outline-success">
         {showAddClass ? "Close" : "Add Class"}
       </Button>
       {showAddClass && (

@@ -7,11 +7,11 @@ export default function NavBar() {
     <>
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href="#home">BJJ Class Tracker</Navbar.Brand>
+          <Navbar.Brand href="home">BJJ Class Tracker</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#about">About</Nav.Link>
-            <Nav.Link href="#pricing">Contact</Nav.Link>
+            <Nav.Link href="home">Home</Nav.Link>
+            <Nav.Link href="about">About</Nav.Link>
+            <Nav.Link href="contact">Contact</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
